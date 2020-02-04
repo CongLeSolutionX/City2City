@@ -14,9 +14,10 @@ class MostRecentViewController: UIViewController {
     //MARK: IB Outlets
     @IBOutlet weak var recentsTableView: UITableView!
     
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapView: MKMapView?
     //MARK: Properties
-    let coreViewModel = CoreViewModel()
+    var coreViewModel = CoreViewModel()
+   
     
     //MARK: VC Lifecycle
     override func viewDidLoad() {
@@ -35,7 +36,7 @@ class MostRecentViewController: UIViewController {
     
     
     //MARK: Functions
-    // Observer
+    // Notification Observer
     func createObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateView), name: Notification.Name.CoreNotification, object: nil)
     }
@@ -49,6 +50,9 @@ class MostRecentViewController: UIViewController {
         recentsTableView.tableFooterView = UIView(frame: .zero)
         title = "Recent Cities"
     }
+    
+ 
+    
 
 }
 
@@ -64,7 +68,8 @@ extension MostRecentViewController: UITableViewDataSource {
         
         let coreCity = coreViewModel.coreCities[indexPath.row]
         let city = City(with: coreCity)
-        cell.configure(with: city)
+        
+        cell.reformat(with: city)
         
         return cell
     }
@@ -75,32 +80,19 @@ extension MostRecentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         //TODO: SHOW THE MAP OF RECENT CITY 
+       
         let selectedRecentCity = coreViewModel.coreCities[indexPath.row]
-
-        print("\(selectedRecentCity)")
-          
-            // get the coordinate of the city
-                  // use MKCoordianteRegion
-                  // set the location using MKPointAnnotaiton()
-                  // MKMapView on MapVC
+       
+        print("\(selectedRecentCity.latitude)")
+        print("\(selectedRecentCity.longitude)")
         
-            
-          
         let coordinates = CLLocationCoordinate2D(latitude: selectedRecentCity.latitude, longitude: selectedRecentCity.longitude)
-      //  let span = MKCoordinateSpan(latitudeDelta: 1,longitudeDelta: 1)
-       // let region = MKCoordinateRegion(center: location, span: span)
-  
-               
-               let region = MKCoordinateRegion(center: coordinates, latitudinalMeters: 10000, longitudinalMeters: 10000)
-               
-               let location = MKPointAnnotation()
-               location.coordinate = coordinates
-        //location.title = "\(selectedRecentCity.name)"
-        //location.subtitle = "\(selectedRecentCity.state)"
-               
-              // mapView.addAnnotation(location)
-              // mapView.setRegion(region, animated: true)
+           
+//        let region = MKCoordinateRegion(center: coordinates, latitudinalMeters: 10000, longitudinalMeters: 10000)
         
+
+      
+ 
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80

@@ -31,7 +31,7 @@ final class CoreManager {
         
         container.loadPersistentStores(completionHandler: { (persistentStore, err) in
             if let error = err {
-                fatalError("Ya messed up")
+                fatalError("Something wrong here")
             }
         })
         
@@ -62,7 +62,7 @@ final class CoreManager {
         }
     }
     
-    //MARK: Delete
+    //MARK: Delete Entity from Core data
     func delete(with city: CoreCity) {
         
         context.delete(city)

@@ -18,7 +18,7 @@ class CityTableCell: UITableViewCell {
     static let identifier = "CityTableCell"
     
     //MARK: Functions
-    func configure(with city: City) {
+    func reformat(with city: City) {
         
         cityMainLabel.text = "\(city.name), \(city.state)"
         

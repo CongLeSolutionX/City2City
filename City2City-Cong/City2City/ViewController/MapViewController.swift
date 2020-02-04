@@ -51,7 +51,7 @@ class MapViewController: UIViewController {
     private func setupMap() {
         
         let coordinates = viewModel.currentCity.coordinates
-        
+
         let region = MKCoordinateRegion(center: coordinates, latitudinalMeters: 10000, longitudinalMeters: 10000)
         
         let location = MKPointAnnotation()

@@ -35,7 +35,6 @@ class City {
         self.name = city
         self.coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         self.state = state
-        
         self.population = population
         
 

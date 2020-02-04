@@ -38,7 +38,6 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="recentsTableView" destination="zxK-DW-9uT" id="jVB-Mb-Cuf"/>
-                        <segue destination="S79-8g-a1J" kind="show" id="6er-J7-2xl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHQ-xh-Yu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -48,13 +47,13 @@
         <!--Most Recent View Controller-->
         <scene sceneID="piF-M3-nav">
             <objects>
-                <viewController storyboardIdentifier="MostRecenVC" id="S79-8g-a1J" customClass="MostRecentViewController" customModule="City2City" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IY4-lN-NYo">
+                <viewController storyboardIdentifier="MostRecentViewController" id="S79-8g-a1J" customClass="MostRecentViewController" customModule="City2City" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IY4-lN-NYo" customClass="MKMapView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pEV-QL-Pje">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

@@ -8,7 +8,7 @@
 
 
 import Foundation
-
+import MapKit 
 
 class CoreViewModel {
     //MARK: Properties
@@ -24,5 +24,7 @@ class CoreViewModel {
        coreCities = coreManager.getCoreCities()
     }
     
+    
+   
     
 }

@@ -65,7 +65,7 @@ class SearchViewController: UIViewController {
     func setupSearch() {
         
         searchController.definesPresentationContext = true
-        searchController.searchBar.placeholder = "Search Cities..."
+        searchController.searchBar.placeholder = "Please type a city..."
         searchController.searchResultsUpdater = self
         
         navigationItem.searchController = searchController
@@ -107,7 +107,7 @@ extension SearchViewController: UITableViewDataSource {
         
         let city = cities[indexPath.row]
         
-        cell.configure(with: city)
+        cell.reformat(with: city)
         
         return cell
     }
@@ -125,6 +125,8 @@ extension SearchViewController: UITableViewDelegate {
         
         let coreCities = coreManager.getCoreCities()
         var flag = false
+        
+        // we only store 10 most recent city in the history
         if coreCities.count > 0 {
             for coreCity in coreCities {
                 if coreCity.name == city.name && coreCity.state == city.state {
@@ -133,7 +135,7 @@ extension SearchViewController: UITableViewDelegate {
             }
         }
         if !flag {
-            if coreCities.count > 9 {
+            if coreCities.count > 9 { // delete the city in the head of array
                 coreManager.delete(with: coreCities.first!)
             }
             coreManager.save(with: city)
