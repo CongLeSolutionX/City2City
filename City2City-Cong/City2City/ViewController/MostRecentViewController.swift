@@ -87,11 +87,7 @@ extension MostRecentViewController: UITableViewDelegate {
         print("\(selectedRecentCity.longitude)")
         
         let coordinates = CLLocationCoordinate2D(latitude: selectedRecentCity.latitude, longitude: selectedRecentCity.longitude)
-           
-//        let region = MKCoordinateRegion(center: coordinates, latitudinalMeters: 10000, longitudinalMeters: 10000)
-        
-
-      
+ 
  
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
